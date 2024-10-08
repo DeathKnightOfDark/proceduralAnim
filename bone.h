@@ -16,8 +16,14 @@ public:
 	void set_boneBaseJointPos_glob(Vector2f input);
 	void set_boneOtherJointPos_glob(Vector2f input);
 	void rotateBone(float grad);
+	void moveBone(Vector2f movementVector);
+	void setBonePos(Vector2f newPos);
 	void drawBone(RenderWindow& renderWindow);
 	float getBoneLength();
+	void addAncestor(bone ancestor);
+
+	void updateboneDrawable();
+	Vector2f get_boneOtherJointPos_glob();
 private:
 	Vector2f boneBaseJointPos_glob;
 	Vector2f boneOtherJointPos_glob;
@@ -25,4 +31,5 @@ private:
 	float boneLength;
 	std::vector<bone> ancestors;
 	RectangleShape boneDrawable;
+	float rotAngle;
 };
