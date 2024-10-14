@@ -11,6 +11,7 @@ class bone
 public:
 	bone();
 	bone(Vector2f baseJointPos, Vector2f secondaryJointPos);
+	bone(Vector2f baseJointPos, float boneLength, float baseAngle);
 	void link_linkedTransformable(Transformable* input);
 	void updateJoints();
 	void set_boneBaseJointPos_glob(Vector2f input);
@@ -24,12 +25,16 @@ public:
 
 	void updateboneDrawable();
 	Vector2f get_boneOtherJointPos_glob();
+
 private:
 	Vector2f boneBaseJointPos_glob;
 	Vector2f boneOtherJointPos_glob;
 	Transformable* linkedTransformable;
+	Transformable boneTransformable;
 	float boneLength;
 	std::vector<bone> ancestors;
 	RectangleShape boneDrawable;
-	float rotAngle;
+	CircleShape baseJointDrawable;
+	CircleShape secondaryJointDrawable;
+	float startRotAngle;
 };
